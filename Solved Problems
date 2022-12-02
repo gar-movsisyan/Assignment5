@@ -1,0 +1,100 @@
+//Matrix Product
+function matrixProd(matrix1, matrix2){
+    let matrix = [];
+    for(let index = 0; index < matrix1.length; index++){
+        matrix[index] = [];
+        for(let n = 0; n < matrix2[0].length; n++){
+            let product = 0;
+            for(let m = 0; m < matrix1[0].length; m++){
+                product = product + matrix1[index][m] * matrix2[m][n];
+            }
+            matrix[index][n] = product;
+        }
+    }
+    return matrix;
+}
+
+let mat1 = [
+          [12, 23, 9],
+          [31, 8, 12],
+          [17, 24, 6]
+        ]
+let mat2 = [
+          [32, 8, 16],
+          [11, 12, 9],
+          [7, 21, 41]
+        ]
+console.log(matrixProd(mat1, mat2) )
+    
+
+
+
+// Sum of Matrixes
+function sumOfMatrixes(matrix1, matrix2){
+    let matrix = [];
+    for(let index = 0; index < matrix1.length; index++){
+        matrix[index] = [];
+        for( let n = 0; n < matrix1[index].length; n++){
+            let sum = 0;
+            sum = sum + matrix1[index][n] + matrix2[index][n];
+            matrix[index][n] = sum;
+        }
+    }
+    return matrix;
+}
+console.log(sumOfMatrixes(mat1, mat2));
+
+
+//Sum of Arrays for Sum of Rows
+function sumOfArr(array){
+    let result = 0;
+    let array1 = [];
+    for(let index = 0; index < array.length; index++){
+        result = result + array[index];
+    }
+    array1.push(result)
+    return array1;
+}
+
+
+
+function sumOfRows(matrix){
+    let sum = [];
+    for(let index = 0; index < matrix.length; index++){
+        sum[index] = sumOfArr(matrix[index])
+    }
+    return sum;
+}
+console.log(sumOfRows([
+    [19, 24, 8],
+    [7, 12, 29],
+    [2, 11, 32]
+]));
+
+
+//Trim 
+function trim(string){
+    let trim = false;
+    let word = "";
+    for(let index = 0; index < string.length; index++){
+        if(string[index] !== " "){
+            trim = true;
+        }
+        if(trim){    
+            word = word.concat(string[index]);
+        }
+    }
+    return word;
+}
+let trimWord = "   hello"
+console.log(trim(trimWord));
+
+
+//Word count
+function wordCount(str){
+    return str.trim().split(/\s+/).length;
+}
+
+console.log(wordCount( "Hello my name is Garegin and I am 18 years old"));
+
+
